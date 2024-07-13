@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import ProjectCard from '../components/ProjectCard';
+import Footer from '../components/Footer';
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -15,6 +16,23 @@ const ProjectsContainer = styled.div`
   }
 `;
 
+const GlobalStyle = createGlobalStyle`
+  ::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: yellow;
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 100px;
+  }
+`;
+
 const Projects: React.FC = () => {
   const [repos, setRepos] = useState<any[]>([]);
 
@@ -25,7 +43,9 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
+  
     <ProjectsContainer>
+      <GlobalStyle />
       {repos.map(repo => (
         <ProjectCard 
           key={repo.id} 
@@ -35,6 +55,7 @@ const Projects: React.FC = () => {
         />
       ))}
     </ProjectsContainer>
+    
   );
 };
 

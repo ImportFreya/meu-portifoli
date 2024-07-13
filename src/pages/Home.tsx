@@ -34,12 +34,12 @@ const HomeContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2.5em;
+  font-size: 2.1em;
   margin: 0;
 `;
 
 const SubTitle = styled.p`
-  font-size: 1.5em;
+  font-size: 1.1em;
   margin: 10px 0;
 `;
 
